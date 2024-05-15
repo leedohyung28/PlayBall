@@ -13,10 +13,10 @@
 
 #### Platform 🏬
 <img src="https://img.shields.io/badge/VS CODE-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
-<img src="https://img.shields.io/badge/FLUTTER-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
+<img src="https://img.shields.io/badge/FLUTTER-02569B?style=for-the-badge&logo=flutter&logoColor=white">
 
 #### Languages 🚩
-<img src="https://img.shields.io/badge/DART-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
+<img src="https://img.shields.io/badge/DART-0175C2?style=for-the-badge&logo=dart&logoColor=white">
 
 ---
 
