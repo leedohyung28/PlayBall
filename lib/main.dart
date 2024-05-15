@@ -1,8 +1,12 @@
+import 'dart:html';
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/Headers/ResponsiveAppBar.dart';
 import 'package:flutter_application_1/Headers/ResponsiveDrawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:stroke_text/stroke_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
@@ -49,6 +53,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    var maxHW = max(width, height);
 
     final isDesktop = width > 800;
 
@@ -73,7 +78,7 @@ class _HomeState extends State<Home> {
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/mainBackground2.jpg',
+                            'assets/mainBackground.jpg',
                           ),
                           fit: BoxFit.cover,
                         ),
@@ -115,7 +120,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Positioned(
-                      top: height * 0.2,
+                      top: maxHW * 0.15,
                       left: 0,
                       right: 0,
                       child: PointerInterceptor(
@@ -232,7 +237,7 @@ class _HomeState extends State<Home> {
                 ),
                 PointerInterceptor(
                   child: Container(
-                    height: height * 0.6,
+                    height: height * 0.9,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
@@ -243,52 +248,44 @@ class _HomeState extends State<Home> {
                     ),
                     child: Center(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          StrokeText(
-                            text: "Play Ball 특징",
-                            textStyle: TextStyle(
+                          Text(
+                            "Play Ball 특징",
+                            style: TextStyle(
                               fontSize: height * 0.05,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
-                            strokeColor: Colors.white,
-                            strokeWidth: 2,
                           ),
                           SizedBox(
                             height: height * 0.03,
                           ),
-                          StrokeText(
-                            text: "- 각종 야구 기록 및 일정 확인 가능",
-                            textStyle: TextStyle(
+                          Text(
+                            "- 각종 야구 기록 및 일정 확인 가능",
+                            style: TextStyle(
                               fontSize: height * 0.02,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
-                            strokeColor: Colors.white,
-                            strokeWidth: 1.5,
                           ),
                           SizedBox(
                             height: height * 0.02,
                           ),
-                          StrokeText(
-                            text: "- KBO 팀 소개 및 티켓 예매 기능",
-                            textStyle: TextStyle(
+                          Text(
+                            "- KBO 팀 소개 및 티켓 예매 기능",
+                            style: TextStyle(
                               fontSize: height * 0.02,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
-                            strokeColor: Colors.white,
-                            strokeWidth: 1.5,
                           ),
                           SizedBox(
                             height: height * 0.02,
                           ),
-                          StrokeText(
-                            text: "- 한국시리즈 우승팀 확인 가능",
-                            textStyle: TextStyle(
+                          Text(
+                            "- 한국시리즈 우승팀 확인 가능",
+                            style: TextStyle(
                               fontSize: height * 0.02,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
-                            strokeColor: Colors.white,
-                            strokeWidth: 1.5,
                           ),
                         ],
                       ),
@@ -309,51 +306,43 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          StrokeText(
-                            text: "Major League Baseball",
-                            textStyle: TextStyle(
+                          Text(
+                            "Major League Baseball",
+                            style: TextStyle(
                               fontSize: width * 0.04,
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 2,
                           ),
                           SizedBox(
                             height: width * 0.03,
                           ),
-                          StrokeText(
-                            text: "1903년 설립",
-                            textStyle: TextStyle(
+                          Text(
+                            "1903년 설립",
+                            style: TextStyle(
                               fontSize: width * 0.025,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 1.5,
                           ),
                           SizedBox(
                             height: width * 0.02,
                           ),
-                          StrokeText(
-                            text: "내셔널 리그 (15팀) - 아메리칸 리그 (15팀) : 양대리그 체제",
-                            textStyle: TextStyle(
+                          Text(
+                            "내셔널 리그 (15팀) - 아메리칸 리그 (15팀) : 양대리그 체제",
+                            style: TextStyle(
                               fontSize: width * 0.02,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 1.5,
                           ),
                           SizedBox(
                             height: width * 0.02,
                           ),
-                          StrokeText(
-                            text: "최다 우승팀 : New York Yankees (27회)",
-                            textStyle: TextStyle(
+                          Text(
+                            "최다 우승팀 : New York Yankees (27회)",
+                            style: TextStyle(
                               fontSize: width * 0.025,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 1.5,
                           ),
                         ],
                       ),
@@ -526,51 +515,43 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          StrokeText(
-                            text: "Nippon Professional Baseball",
-                            textStyle: TextStyle(
+                          Text(
+                            "Nippon Professional Baseball",
+                            style: TextStyle(
                               fontSize: width * 0.04,
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 2,
                           ),
                           SizedBox(
                             height: width * 0.03,
                           ),
-                          StrokeText(
-                            text: "1936년 설립",
-                            textStyle: TextStyle(
+                          Text(
+                            "1936년 설립",
+                            style: TextStyle(
                               fontSize: width * 0.025,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 1.5,
                           ),
                           SizedBox(
                             height: width * 0.02,
                           ),
-                          StrokeText(
-                            text: "센트럴 리그 (6팀) - 퍼시픽 리그 (6팀) : 양대리그 체제",
-                            textStyle: TextStyle(
+                          Text(
+                            "센트럴 리그 (6팀) - 퍼시픽 리그 (6팀) : 양대리그 체제",
+                            style: TextStyle(
                               fontSize: width * 0.02,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 1.5,
                           ),
                           SizedBox(
                             height: width * 0.02,
                           ),
-                          StrokeText(
-                            text: "최다 우승팀 : 요미우리 자이언츠 (27회)",
-                            textStyle: TextStyle(
+                          Text(
+                            "최다 우승팀 : 요미우리 자이언츠 (27회)",
+                            style: TextStyle(
                               fontSize: width * 0.025,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
-                            strokeColor: Colors.black,
-                            strokeWidth: 1.5,
                           ),
                         ],
                       ),

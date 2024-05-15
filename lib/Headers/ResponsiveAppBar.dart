@@ -26,7 +26,10 @@ class ResponsiveAppBar extends StatelessWidget {
                       (Route<dynamic> route) => false,
                     );
                   },
-                  icon: const FaIcon(FontAwesomeIcons.baseball),
+                  icon: const FaIcon(
+                    FontAwesomeIcons.baseball,
+                    color: Colors.white,
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
@@ -108,14 +111,20 @@ class ResponsiveAppBar extends StatelessWidget {
                       (Route<dynamic> route) => false,
                     );
                   },
-                  icon: const FaIcon(FontAwesomeIcons.baseball),
+                  icon: const FaIcon(
+                    FontAwesomeIcons.baseball,
+                    color: Colors.white,
+                  ),
                 ),
                 IconButton(
                   onPressed: () {
                     launchUrl(Uri.parse(
                         'https://sports.news.naver.com/kbaseball/news/index?isphoto=N'));
                   },
-                  icon: const FaIcon(FontAwesomeIcons.solidNewspaper),
+                  icon: const FaIcon(
+                    FontAwesomeIcons.solidNewspaper,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),

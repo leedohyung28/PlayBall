@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Headers/ResponsiveAppBar.dart';
 import 'package:flutter_application_1/Headers/ResponsiveDrawer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Teams extends StatefulWidget {
@@ -155,6 +158,7 @@ class _TeamsState extends State<Teams> {
   Widget build(BuildContext context) {
     final isDesktop = MediaQuery.of(context).size.width > 800;
     var width = MediaQuery.of(context).size.width;
+    var maxHW = max(width, MediaQuery.of(context).size.height);
 
     int crossAxisCount;
     if (width < 600) {
@@ -230,33 +234,53 @@ class _TeamsState extends State<Teams> {
                             ),
                           ),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              IconButton(
-                                onPressed: () {
-                                  launchUrl(
-                                      Uri.parse(boxData[index]['homepageUrl']));
-                                },
-                                icon: SvgPicture.asset(
-                                  boxData[index]['hover'] as String,
+                              SizedBox(
+                                height: maxHW * 0.03,
+                                width: maxHW * 0.04,
+                                child: IconButton(
+                                  onPressed: () {
+                                    launchUrl(Uri.parse(
+                                        boxData[index]['homepageUrl']));
+                                  },
+                                  icon: SvgPicture.asset(
+                                    boxData[index]['hover'] as String,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  color: const Color(0xff777737),
                                 ),
-                                color: const Color(0xff777737),
                               ),
-                              IconButton(
-                                onPressed: () {
-                                  launchUrl(
-                                      Uri.parse(boxData[index]['instaUrl']));
-                                },
-                                icon: const FaIcon(FontAwesomeIcons.instagram),
-                                color: const Color(0xffE1306C),
+                              SizedBox(
+                                height: maxHW * 0.03,
+                                width: maxHW * 0.04,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      launchUrl(Uri.parse(
+                                          boxData[index]['instaUrl']));
+                                    },
+                                    icon: const FaIcon(
+                                        FontAwesomeIcons.instagram),
+                                    color: const Color(0xffE1306C),
+                                  ),
+                                ),
                               ),
-                              IconButton(
-                                onPressed: () {
-                                  launchUrl(
-                                      Uri.parse(boxData[index]['shopUrl']));
-                                },
-                                icon: const FaIcon(FontAwesomeIcons.gift),
-                                color: const Color(0xff833AB4),
+                              SizedBox(
+                                height: maxHW * 0.03,
+                                width: maxHW * 0.04,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      launchUrl(
+                                          Uri.parse(boxData[index]['shopUrl']));
+                                    },
+                                    icon: const FaIcon(FontAwesomeIcons.gift),
+                                    color: const Color(0xff833AB4),
+                                  ),
+                                ),
                               ),
                             ],
                           ),

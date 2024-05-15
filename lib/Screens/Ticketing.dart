@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Headers/ResponsiveAppBar.dart';
 import 'package:flutter_application_1/Headers/ResponsiveDrawer.dart';
@@ -123,6 +125,7 @@ class _TicketingState extends State<Ticketing> {
   Widget build(BuildContext context) {
     final isDesktop = MediaQuery.of(context).size.width > 800;
     var width = MediaQuery.of(context).size.width;
+    var maxHW = max(width, MediaQuery.of(context).size.height);
 
     int crossAxisCount;
     if (width < 600) {
@@ -221,7 +224,7 @@ class _TicketingState extends State<Ticketing> {
                                           ticketInfo[index]['address'],
                                       textStyle: TextStyle(
                                         color: Colors.white,
-                                        fontSize: width * 0.02,
+                                        fontSize: maxHW * 0.008,
                                       ),
                                       strokeColor: Colors.black,
                                       strokeWidth: 2,
